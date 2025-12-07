@@ -57,10 +57,6 @@ Node.js for backend processing.
 -   Navigate dashboard
 -   Use CRUD features
 
-## ⚠️ Known Issues
-
--   Add your known limitations here.
-
 ## 🎯 Future Improvements
 
 -   Add database connectivity
