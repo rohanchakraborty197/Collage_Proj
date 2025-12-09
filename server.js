@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, "public")));
 const db = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "Narayan@2004",
+    password: "BABU@08ram",
     database: "tracknheal_db"
 });
 
@@ -70,9 +70,7 @@ app.post("/login", async (req, res) => {
     if (!email || !password) {
         return res.json({ message: "Email and password are required" });
     }
-
     const sql = "SELECT * FROM users WHERE email=?";
-
     db.query(sql, [email], async (err, results) => {
         if (err) {
             console.error("Login error:", err);
