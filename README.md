@@ -1,6 +1,6 @@
 ## 📘 Project Overview
 
-A web-based application that provides a structured interface for workflows. The project uses HTML, CSS, JavaScript for the frontend and
+A web-based application that provides a structured interface for ambulance booking and real time tracking. The project uses HTML, CSS, JavaScript for the frontend and
 Node.js for backend processing.
 
 
