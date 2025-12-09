@@ -58,11 +58,7 @@ Node.js for backend processing.
 -   Use CRUD features
 
 
----
-description: How to set up the MySQL database for TrackNHeal
----
-
-# Database Setup for TrackNHeal
+# Database Setup for the project:
 
 ## Prerequisites
 - MySQL Server installed and running
