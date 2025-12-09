@@ -16,6 +16,10 @@
             --font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
             padding: 0;
@@ -418,17 +422,17 @@
         <div class="logo"><span class="logo-icon">🚑</span>Ambulance</div>
 
         <ul class="nav-links">
-            <li><a href="#">🏠 Home</a></li>
-            <li><a href="#">🚑 Book Ambulance</a></li>
-            <li><a href="#">📋 Services</a></li>
-            <li><a href="#">📞 Contact</a></li>
+            <li><a href="#home">🏠 Home</a></li>
+            <li><a href="#booking" onclick="openBookingModal(); return false;">🚑 Book Ambulance</a></li>
+            <li><a href="#services">📋 Services</a></li>
+            <li><a href="#contact">📞 Contact</a></li>
         </ul>
 
         <button class="login-btn" onclick="openModal()">Login</button>
     </nav>
 
-    <!---------------- MAIN UI ---------------->
-    <section>
+    <!---------------- MAIN UI ------------------>
+    <section id="home">
         <button onclick="openBookingModal()">Book Ambulance Now 🚑</button>
 
         <div class="search-bar">
@@ -440,6 +444,63 @@
             <h3>📍 24/7 Emergency Support</h3>
             <h2>123 - 456 - 7890</h2>
         </div>
+    </section>
+
+    <!------------------ SERVICES SECTION ------------------>
+    <section id="services" style="background: white; padding: 60px 20px; margin-top: 0;">
+        <h2 style="color: var(--primary-color); margin-bottom: 40px;">📋 Our Services</h2>
+        <div
+            style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1200px; margin: 0 auto;">
+            <div style="background: var(--secondary-color); padding: 30px; border-radius: 15px; width: 280px; box-shadow: var(--shadow); transition: transform 0.3s ease;"
+                onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                <div style="font-size: 3em; margin-bottom: 15px;">🚨</div>
+                <h3 style="color: var(--primary-color);">Emergency Response</h3>
+                <p>24/7 rapid emergency ambulance dispatch with trained paramedics.</p>
+            </div>
+            <div style="background: var(--secondary-color); padding: 30px; border-radius: 15px; width: 280px; box-shadow: var(--shadow); transition: transform 0.3s ease;"
+                onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                <div style="font-size: 3em; margin-bottom: 15px;">🏥</div>
+                <h3 style="color: var(--primary-color);">Hospital Transfer</h3>
+                <p>Safe and comfortable inter-hospital patient transfers.</p>
+            </div>
+            <div style="background: var(--secondary-color); padding: 30px; border-radius: 15px; width: 280px; box-shadow: var(--shadow); transition: transform 0.3s ease;"
+                onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                <div style="font-size: 3em; margin-bottom: 15px;">👶</div>
+                <h3 style="color: var(--primary-color);">Maternity Care</h3>
+                <p>Specialized ambulances for pregnancy and neonatal emergencies.</p>
+            </div>
+            <div style="background: var(--secondary-color); padding: 30px; border-radius: 15px; width: 280px; box-shadow: var(--shadow); transition: transform 0.3s ease;"
+                onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                <div style="font-size: 3em; margin-bottom: 15px;">💊</div>
+                <h3 style="color: var(--primary-color);">Medical Equipment</h3>
+                <p>Fully equipped ambulances with advanced life support systems.</p>
+            </div>
+        </div>
+    </section>
+
+    <!------------------ CONTACT SECTION ------------------>
+    <section id="contact"
+        style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); padding: 60px 20px; margin-top: 0; color: white;">
+        <h2 style="color: white; margin-bottom: 40px;">📞 Contact Us</h2>
+        <div
+            style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1000px; margin: 0 auto;">
+            <div style="text-align: center;">
+                <div style="font-size: 2.5em; margin-bottom: 10px;">📱</div>
+                <h3>Emergency Hotline</h3>
+                <p style="font-size: 1.5em; font-weight: 700;">123-456-7890</p>
+            </div>
+            <div style="text-align: center;">
+                <div style="font-size: 2.5em; margin-bottom: 10px;">📧</div>
+                <h3>Email</h3>
+                <p style="font-size: 1.2em;">help@tracknheal.com</p>
+            </div>
+            <div style="text-align: center;">
+                <div style="font-size: 2.5em; margin-bottom: 10px;">📍</div>
+                <h3>Address</h3>
+                <p style="font-size: 1.2em;">123 Medical Lane, Health City</p>
+            </div>
+        </div>
+        <p style="margin-top: 40px; opacity: 0.9;">© 2024 TrackNHeal Ambulance Service. All rights reserved.</p>
     </section>
 
     <!---------------- LOGIN / SIGNUP MODAL ---------------->
