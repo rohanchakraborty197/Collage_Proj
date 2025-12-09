@@ -171,26 +171,6 @@ Stored in DB: "$2b$10$N9qo8uLOickgx2ZMRZoMye.IjqQBrkHx5..."
            60-character hash (irreversible)
 ```
 
-## Testing Steps
-
-1. **Clear old users** (they have plain text passwords):
-   ```sql
-   TRUNCATE TABLE users;
-   ```
-
-2. **Create new account** via signup form
-
-3. **Check database** - password will look like:
-   ```
-   $2b$10$XKxEZB1G...
-   ```
-
-4. **Login** with the new account
-
----
-
-
-
 ## 🔗 Repository
 
 https://github.com/rohanchakraborty197/Collage_Proj
