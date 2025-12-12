@@ -54,7 +54,7 @@ app.post("/signup", async (req, res) => {
                 console.error("Signup error:", err);
                 return res.json({ message: "Signup failed" });
             }
-            res.json({ message: "Signup successful" });
+            res.json({ message: "Signup successful", userId: result.insertId });
         });
     } catch (error) {
         console.error("Hashing error:", error);
@@ -68,33 +68,42 @@ app.post("/login", async (req, res) => {
 
     // Validate input
     if (!email || !password) {
-        return res.json({ message: "Email and password are required" });
+        return res.json({ success: false, message: "Email and password are required" });
     }
     const sql = "SELECT * FROM users WHERE email=?";
     db.query(sql, [email], async (err, results) => {
         if (err) {
             console.error("Login error:", err);
-            return res.json({ message: "Login failed" });
+            return res.json({ success: false, message: "Login failed" });
         }
 
         if (results.length > 0) {
             const user = results[0];
 
             try {
-                // Compare password with hashed password
-                const match = await bcrypt.compare(password, user.password);
+                // Check if password is bcrypt hashed (starts with $2b$ or $2a$)
+                const isHashed = user.password.startsWith('$2b$') || user.password.startsWith('$2a$');
+
+                let match = false;
+                if (isHashed) {
+                    // Compare with bcrypt
+                    match = await bcrypt.compare(password, user.password);
+                } else {
+                    // Legacy: plain text comparison (for old accounts)
+                    match = (password === user.password);
+                }
 
                 if (match) {
-                    res.json({ message: "Login successful", userId: user.id });
+                    res.json({ success: true, message: "Login successful", userId: user.id, userName: user.name });
                 } else {
-                    res.json({ message: "Invalid email or password" });
+                    res.json({ success: false, message: "Invalid email or password" });
                 }
             } catch (error) {
                 console.error("Compare error:", error);
-                res.json({ message: "Login failed" });
+                res.json({ success: false, message: "Login failed" });
             }
         } else {
-            res.json({ message: "Invalid email or password" });
+            res.json({ success: false, message: "Invalid email or password" });
         }
     });
 });
